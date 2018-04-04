@@ -1,0 +1,60 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.0.RELEASE'
+		commonsLangVersion = '2.6'
+		mybatisSpringVersion = '1.3.1'
+		mysqlVersion = '5.1.34'
+		druidVersion = '1.1.5'
+		fastjsonVersion = '1.2.30'
+		jacksonVersion = '2.8.3'
+	}
+	repositories {
+		maven {
+			url("http://maven.aliyun.com/nexus/content/groups/public/")
+		}
+		maven {
+			url("http://repository.sonatype.org/content/groups/public/")
+		}
+		maven {
+			url("https://repo1.maven.org/maven2/")
+		}
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'git.yampery.cryptic'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	maven {
+		url("http://maven.aliyun.com/nexus/content/groups/public/")
+	}
+	maven {
+		url("http://repository.sonatype.org/content/groups/public/")
+	}
+	maven {
+		url("https://repo1.maven.org/maven2/")
+	}
+	mavenCentral()
+}
+
+
+dependencies {
+	compile(
+			'org.springframework.boot:spring-boot-starter-web',
+			'mysql:mysql-connector-java',
+			"org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisSpringVersion}",
+			"com.alibaba:druid:${druidVersion}",
+
+	)
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
