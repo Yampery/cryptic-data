@@ -6,4 +6,4 @@
 - 运行测试文件
 
 **该项目使用springboot+mybatis+gradle构建，对于传统spring+maven项目，只需要更改配置即可**
-**具体问题访问博客: https://mp.csdn.net/mdeditor/79821671**
+**具体问题访问博客: https://blog.csdn.net/wizard_rp/article/details/79821671**
