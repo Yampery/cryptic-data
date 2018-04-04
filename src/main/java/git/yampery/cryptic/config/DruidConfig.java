@@ -26,7 +26,7 @@ import java.sql.SQLException;
 @PropertySource("classpath:jdbc.properties")
 public class DruidConfig {
 
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    // private Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * 数据源
@@ -48,35 +48,9 @@ public class DruidConfig {
         datasource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
         datasource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis);
         datasource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
-        try {
-            datasource.setFilters(filters);
-        } catch (SQLException e) {
-            logger.error("druid configuration initialization filter", e);
-        }
         return datasource;
     }
 
-
-    @Bean
-    public ServletRegistrationBean druidServlet() {
-        ServletRegistrationBean reg = new ServletRegistrationBean();
-        reg.setServlet(new StatViewServlet());
-        reg.addUrlMappings("/druid/*");
-        reg.addInitParameter("loginUsername", username);
-        reg.addInitParameter("loginPassword", password);
-        reg.addInitParameter("logSlowSql", "true");
-        return reg;
-    }
-
-    @Bean
-    public FilterRegistrationBean filterRegistrationBean() {
-        FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
-        filterRegistrationBean.setFilter(new WebStatFilter());
-        filterRegistrationBean.addUrlPatterns("/*");
-        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
-        filterRegistrationBean.addInitParameter("profileEnable", "true");
-        return filterRegistrationBean;
-    }
 
     @Value("${jdbc.url}")
     private String dbUrl;
@@ -100,7 +74,5 @@ public class DruidConfig {
     private int minEvictableIdleTimeMillis;
     @Value("${jdbc.pool.maxPoolPreparedStatementPerConnectionSize}")
     private int maxPoolPreparedStatementPerConnectionSize;
-    @Value("${jdbc.pool.filter}")
-    private String filters;
 }
 
