@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="git.yampery.cryptic.dao.TUserMapper">
+<mapper namespace="git.yampery.cryptic.dao.UserDao">
   <resultMap id="BaseResultMap" type="git.yampery.cryptic.pojo.TUser">
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
@@ -37,7 +37,7 @@
       </if>
     </trim>
   </insert>
-  <select id="queryList">
+  <select id="queryList" resultType="git.yampery.cryptic.pojo.TUser">
     SELECT * FROM T_USER
     <where>
       <if test="id != null">
