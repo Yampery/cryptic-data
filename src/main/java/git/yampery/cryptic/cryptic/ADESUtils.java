@@ -152,6 +152,6 @@ public class ADESUtils {
         // 转为16进制字串
         String key = new String(Hex.encodeHex(skey.getEncoded()));
         //返回密钥的16进制字串
-        return key;
+        return key.toUpperCase();
     }
 }
