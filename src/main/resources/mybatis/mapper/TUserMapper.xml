@@ -41,13 +41,13 @@
     SELECT * FROM T_USER
     <where>
       <if test="id != null">
-        id = #{id},
+        and id = #{id},
       </if>
       <if test="userName != null">
-        user_name = #{userName},
+        and user_name = #{userName},
       </if>
       <if test="phone != null">
-        phone = #{phone},
+        and phone = #{phone}
       </if>
     </where>
   </select>

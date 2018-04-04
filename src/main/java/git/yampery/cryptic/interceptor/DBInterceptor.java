@@ -45,7 +45,10 @@ public class DBInterceptor implements Interceptor {
          * @TODO 处理查询
          */
         if (StringUtils.equalsIgnoreCase("query", methodName)) {
-
+            /**
+             * 在这里可以处理查询参数，如传递的参数为明文，要按照密文查询
+             * 本文选择使用同一参数封装处理方案{@link git.yampery.cryptic.common.QueryParams}
+             */
         }
         /**
          * 拦截批量插入操作不仅繁琐，而且为了通用逐一通过反射加密不妥
@@ -73,6 +76,7 @@ public class DBInterceptor implements Interceptor {
                     Field[] fields = obj.getClass().getDeclaredFields();
                     int len;
                     if (null != fields && 0 < (len = fields.length)) {
+                        // 标记是否有解密注解
                         boolean isD = false;
                         for (int i = 0; i < len; i++) {
                             /**
