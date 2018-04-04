@@ -7,6 +7,7 @@ buildscript {
 		druidVersion = '1.1.5'
 		fastjsonVersion = '1.2.30'
 		jacksonVersion = '2.8.3'
+		commonsCodecVersion = '1.10'
 	}
 	repositories {
 		maven {
@@ -47,14 +48,22 @@ repositories {
 	mavenCentral()
 }
 
-
 dependencies {
 	compile(
 			'org.springframework.boot:spring-boot-starter-web',
+			"commons-lang:commons-lang:${commonsLangVersion}",
 			'mysql:mysql-connector-java',
 			"org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisSpringVersion}",
 			"com.alibaba:druid:${druidVersion}",
+			'org.springframework.boot:spring-boot-starter-log4j2',
+			"commons-codec:commons-codec:${commonsCodecVersion}",
 
 	)
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+// 去除对logback依赖
+configurations {
+	providedRuntime
+	compile.exclude(group: 'ch.qos.logback')
 }
