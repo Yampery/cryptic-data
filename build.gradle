@@ -3,7 +3,7 @@ buildscript {
 		springBootVersion = '2.0.0.RELEASE'
 		commonsLangVersion = '2.6'
 		mybatisSpringVersion = '1.3.1'
-		mysqlVersion = '5.1.34'
+		mysqlVersion = '6.0.6'
 		druidVersion = '1.1.5'
 		fastjsonVersion = '1.2.30'
 		jacksonVersion = '2.8.3'
@@ -50,20 +50,13 @@ repositories {
 
 dependencies {
 	compile(
-			'org.springframework.boot:spring-boot-starter-web',
 			"commons-lang:commons-lang:${commonsLangVersion}",
-			'mysql:mysql-connector-java',
+			"mysql:mysql-connector-java:${mysqlVersion}",
 			"org.mybatis.spring.boot:mybatis-spring-boot-starter:${mybatisSpringVersion}",
 			"com.alibaba:druid:${druidVersion}",
-			'org.springframework.boot:spring-boot-starter-log4j2',
 			"commons-codec:commons-codec:${commonsCodecVersion}",
 
 	)
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
-// 去除对logback依赖
-configurations {
-	providedRuntime
-	compile.exclude(group: 'ch.qos.logback')
-}
