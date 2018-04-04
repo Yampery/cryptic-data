@@ -25,10 +25,3 @@ CREATE TABLE `T_USER` (
   `phone` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of T_USER
--- ----------------------------
-INSERT INTO `T_USER` VALUES ('1', 'yampery', '18700000000');
-INSERT INTO `T_USER` VALUES ('2', 'test', '15200000000');
-INSERT INTO `T_USER` VALUES ('3', 'test1', '13800000000');
