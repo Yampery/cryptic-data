@@ -41,4 +41,12 @@ public class TUser {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    @Override
+    public String toString() {
+        return "TUser{" +
+                "userName='" + userName + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
+    }
 }
