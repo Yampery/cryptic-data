@@ -12,6 +12,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ import java.util.Properties;
         @Signature(type=Executor.class,method="update",args={MappedStatement.class,Object.class}),
         @Signature(type=Executor.class,method="query",args={MappedStatement.class,Object.class,RowBounds.class,ResultHandler.class})
 })
+@Component
 public class DBInterceptor implements Interceptor {
     private final Logger logger = LoggerFactory.getLogger(DBInterceptor.class);
     @Value("${sys.aes.switch}") private String CRYPTIC_SWITCH;
