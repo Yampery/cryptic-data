@@ -22,6 +22,6 @@ DROP TABLE IF EXISTS `T_USER`;
 CREATE TABLE `T_USER` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id自增主键',
   `user_name` varchar(20) DEFAULT NULL COMMENT '用户名',
-  `phone` varchar(15) DEFAULT NULL,
+  `phone` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
