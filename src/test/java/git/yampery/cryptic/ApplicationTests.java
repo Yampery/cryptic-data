@@ -60,7 +60,7 @@ public class ApplicationTests {
 	public void testSelect() {
 		try {
 			List<TUser> users = userService.queryList(null);
-			users.forEach(l -> System.out.println(users));
+			users.forEach(System.out::println);
 		} catch (SysException e) {
 			System.err.println("select user error");
 			e.printStackTrace();
@@ -78,7 +78,7 @@ public class ApplicationTests {
 			// 封装参数
 			QueryParams params = new QueryParams(map);
 			List<TUser> users = userService.queryList(params);
-			users.forEach(l -> System.out.println(users));
+			users.forEach(System.out::println);
 		} catch (SysException e) {
 			System.err.println("select user error");
 			e.printStackTrace();

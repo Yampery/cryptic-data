@@ -9,8 +9,9 @@ import java.lang.reflect.Field;
 /**
  * @decription CryptPojoUtils
  * <p>对象加解密工具
- * 其子类可以通过调用<tt>encrypt(T t)</tt>方法实现自加密，返回参数类型；
- * 调用<tt>decrypt(T t)</tt>实现自解密，返回参数类型；
+ * 通过反射，对参数对象中包含指定注解的字段进行加解密。
+ * 调用<tt>encrypt(T t)</tt>方法实现加密，返回加密后的对象；
+ * 调用<tt>decrypt(T t)</tt>实现解密，返回解密后的对象；
  * <tt>encrypt</tt>对注解{@link EncryptField}字段有效；
  * <tt>decrypt</tt>对注解{@link DecryptField}字段有效。</p>
  * @author Yampery
