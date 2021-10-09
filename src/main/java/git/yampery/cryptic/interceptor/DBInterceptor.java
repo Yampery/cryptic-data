@@ -97,9 +97,7 @@ public class DBInterceptor implements Interceptor {
             }
 
         } catch (Exception e) {
-            // 打印异常，由于拦截器本身抛出异常，比如拦截到很奇葩的返回，应算正常
-            // 直接返回原结果即可
-            logger.info("抛出异常，正常返回==> " + e.getMessage());
+            logger.info("抛出异常 ==> " + e.getMessage());
             e.printStackTrace();
             return returnValue;
         }
